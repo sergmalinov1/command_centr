@@ -1,0 +1,45 @@
+:root {
+  --greyDarkest: rgba(0,0,0,.5);
+  --greyDark: rgba(0,0,0,.2);
+  --greyLight: rgba(0,0,0,.05);
+}
+
+#container {
+    position:relative;
+    font-family: Arial;
+    font-size: 10px;
+}
+
+#container  div {
+    margin:auto;
+    position: absolute;
+    text-align:center;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#container  div span {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    text-align: center;
+    color:#fff;
+    top: 30%;
+    padding-top:4px;
+    padding-bottom: 4px;
+    background: rgba(0,0,0,.5);
+    white-space: nowrap;
+}
+
+.sidenav {
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    right: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
