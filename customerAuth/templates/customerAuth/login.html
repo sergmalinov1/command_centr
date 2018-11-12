@@ -1,0 +1,13 @@
+{% extends "customerAuth/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <form action="verifications/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="Вход">
+    </form>
+
+
+{% endblock %}

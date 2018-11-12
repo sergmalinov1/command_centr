@@ -32,6 +32,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='cell',
             name='landscape',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='globalMaps.Landscape'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='global_maps.Landscape'),
         ),
     ]

@@ -55,7 +55,7 @@ function Hex(i,j) {
             //el.innerHTML = _html;
             el.className = _class;
 
-            el.style.backgroundImage = 'url(static/globalMaps/img/'+_img+')'; //ГОВНОКОД - ПЕРЕДЕЛАТЬ
+            el.style.backgroundImage = 'url(static/global_maps/img/'+_img+')'; //ГОВНОКОД - ПЕРЕДЕЛАТЬ
             el.style.width = _w+'px';
             el.style.height = _h+'px';
             el.style.top = _top+'px';

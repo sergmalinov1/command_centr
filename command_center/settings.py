@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'globalMaps.apps.GlobalmapsConfig',
+    'global_maps.apps.GlobalmapsConfig',
+    'customerAuth.apps.CustomerAuthConfig'
 ]
 
 MIDDLEWARE = [

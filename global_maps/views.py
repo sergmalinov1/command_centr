@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.shortcuts import render_to_response
-from globalMaps.models import Landscape, Cell
+from global_maps.models import Landscape, Cell
 
 def index(request):
     return render(request, 'globalmaps/maps.html')
@@ -12,13 +12,10 @@ def kakogo(request):
     list_of_hex = [];
 
     for cell in list_of_cells:
-        my_landscape = Landscape.objects.filter(id__contains = cell.landscape_id)
-
-        hex = Hex(cell.coord_x, cell.coord_y, my_landscape[0].img)
-      #  hex = Hex(2, 2)
+      #  my_landscape = Landscape.objects.filter(id__contains = cell.landscape_id)
+        my_landscape = Landscape.objects.get(id__contains=cell.landscape_id)
+        hex = Hex(cell.coord_x, cell.coord_y, my_landscape.img)
         list_of_hex.append(hex)
-
-
 
     return render_to_response('globalMaps/maps.html', {'list': list_of_hex})
 
