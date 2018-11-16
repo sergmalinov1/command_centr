@@ -1,22 +1,23 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from customerAuth.forms import LoginForm, SignUpForm
+from account.forms import RegistrationForm
 
 
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'customerAuth/successful.html')
+            return render(request, 'account/successful.html')
     else:
-        form = SignUpForm()
-    return render(request, 'customerAuth/signup.html', {'form': form})
+        form = RegistrationForm()
+    return render(request, 'account/signup.html', {'form': form})
 
 
 
+""" TEST
 @csrf_exempt
 def login(request):
     args = {}
@@ -31,4 +32,4 @@ def login(request):
 
    # return render_to_response('customerAuth/registration.html')
    # return redirect('/')
-
+"""

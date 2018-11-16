@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'global_maps.apps.GlobalmapsConfig',
-    'customerAuth.apps.CustomerAuthConfig'
+    'account.apps.CustomerAuthConfig'
 ]
 
 MIDDLEWARE = [
