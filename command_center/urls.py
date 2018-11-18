@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^global/', include('global_maps.urls')),
     url(r'^account/', include('account.urls')),
 
+
 ]

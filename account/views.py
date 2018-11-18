@@ -2,18 +2,41 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from account.forms import RegistrationForm
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout
 
 @csrf_exempt
-def signup(request):
+def signup_view(request):
+    # Number of visits to this view, as counted in the session variable.
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, 'account/successful.html')
+            user = form.save()
+            #log user here
+            login(request, user)
+            return render(request, 'account/successful.html' )
     else:
         form = RegistrationForm()
-    return render(request, 'account/signup.html', {'form': form})
+    return render(request, 'account/signup.html', {'form': form, 'num_visits':num_visits}, )
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return render(request, 'account/successful.html')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'account/login.html', {'form': form}, )
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return render(request, 'account/successful.html')
 
 
 

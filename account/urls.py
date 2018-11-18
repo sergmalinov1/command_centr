@@ -4,12 +4,13 @@ from django.contrib.auth.views import LoginView
 
 urlpatterns = [
 
-  url(r'^login/$', LoginView.as_view(template_name='account/login.html')),
-  url(r'^signup/$', views.signup, name='signup'),
+  url(r'^signup/$', views.signup_view, name='signup'),
+ # url(r'^login/$',  views.login_view,  name='login'),
+  url(r'^logout/$', views.logout_view, name='logout'),
 
 
  # url(r'^login/verifications/$', views.loginVerifications, name='index'),
-#  url(r'^login/$', LoginView.as_view(template_name='account/login.html')),
+  url(r'^login/$', LoginView.as_view(template_name='account/login.html')),
 
 
 

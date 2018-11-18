@@ -1,3 +1,4 @@
+{% load static from staticfiles %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -8,11 +9,23 @@
         <title>Global Maps</title>
         {% load staticfiles %}
         <link rel="stylesheet" href={% static "globalMaps/img/first.css" %} type="text/css" >
-
-
-
     </head>
     <body>
+
+        <header class="wrapper">
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="/account/logout/" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
 
     <div id="container">
         {% block content %}
@@ -22,7 +35,7 @@
 
 
 
-
+    <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
 
     </body>
 </html>
