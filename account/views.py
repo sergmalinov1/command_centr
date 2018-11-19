@@ -4,6 +4,13 @@ from django.views.decorators.csrf import csrf_exempt
 from account.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
+
+def index(request):
+ #   return HttpResponse("<h3>Hello world</h3>")
+    return redirect ('account/login')
 
 @csrf_exempt
 def signup_view(request):
@@ -28,7 +35,10 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return render(request, 'account/successful.html')
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return render(request, 'account/successful.html')
     else:
         form = AuthenticationForm()
     return render(request, 'account/login.html', {'form': form}, )

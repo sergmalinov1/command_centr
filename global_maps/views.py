@@ -1,12 +1,12 @@
 from django.shortcuts import render
-
 from django.shortcuts import render_to_response
 from global_maps.models import Landscape, Cell
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'globalmaps/maps.html')
 
-
+@login_required(login_url="/account/login/")
 def kakogo(request):
     list_of_cells = Cell.objects.all()
     list_of_hex = [];
