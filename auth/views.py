@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from account.forms import RegistrationForm
+from auth.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
@@ -43,10 +43,20 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'account/login.html', {'form': form}, )
 
+
+
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return render(request, 'account/successful.html')
+
+@login_required(login_url="/account/login/")
+def profile_view(request):
+    return render(request, 'profile/profile.html')
+
+
+def password_reset_view(request):
+    return render(request, 'account/password_reset.html')
 
 
 

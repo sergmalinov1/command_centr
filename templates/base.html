@@ -16,13 +16,25 @@
             <nav>
                 <ul>
                     <li>
-                        <form class="logout-link" action="/account/logout/" method="post">
-                            {% csrf_token %}
-                            <button type="submit">Logout</button>
-                        </form>
+                         {% if user.is_authenticated %}
+                               <p>Welcome, {{ user.username }}. Thanks for logging in
+                                   <a href="{% url 'profile' %}">My profile</a>
+                               </p>
+
+                             <form class="logout-link" action="/auth/logout/" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Logout</button>
+                            </form>
+
+                        {% else %}
+                              <p>Welcome, new user. Please   <a href="{% url 'login' %}">Log in</a></p>
+                        {% endif %}
+
                     </li>
                 </ul>
             </nav>
+
+
         </header>
 
 

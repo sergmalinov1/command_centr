@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class CustomerAuthConfig(AppConfig):
-    name = 'account'
+    name = 'auth'

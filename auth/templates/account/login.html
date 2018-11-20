@@ -4,7 +4,7 @@
 {% block content %}
     <h1> Log in</h1>
 
-    <form action="/account/login/" method="post">
+    <form action="/auth/login/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         {% if request.GET.next %}
@@ -13,5 +13,8 @@
         <button type="submit">Log in</button>
     </form>
 
+
+    <a href="{% url 'signup' %}">Sign up</a>
+    <a href="{% url 'password_reset' %}">Forgot password</a>
 
 {% endblock %}

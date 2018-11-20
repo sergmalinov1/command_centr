@@ -3,9 +3,14 @@
 
 {% block content %}
   <h1>Sign up</h1>
-  <form action="/account/signup/" method="post">
+  <form action="/auth/signup/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign up</button>
   </form>
+
+
+    <a href="{% url 'login' %}">Log in</a>
+    <a href="{% url 'password_reset' %}">Forgot password</a>
+
 {% endblock %}

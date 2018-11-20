@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'global_maps.apps.GlobalmapsConfig',
-    'account.apps.CustomerAuthConfig',
+    'auth.apps.CustomerAuthConfig',
 
 ]
 
@@ -132,4 +132,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-#LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'profile'
