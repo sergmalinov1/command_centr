@@ -29,9 +29,9 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    url(r'^', include('auth.urls')),
+    url(r'^', include('customer.urls')),
     url(r'^global/', include('global_maps.urls')),
-    url(r'^account/', include('auth.urls')),
+    url(r'^customer/', include('customer.urls')),
 
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from auth.forms import RegistrationForm
+from customer.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
  #   return HttpResponse("<h3>Hello world</h3>")
-    return redirect ('account/login')
+    return redirect ('customer/login')
 
 @csrf_exempt
 def signup_view(request):
@@ -24,10 +24,10 @@ def signup_view(request):
             user = form.save()
             #log user here
             login(request, user)
-            return render(request, 'account/successful.html' )
+            return render(request, 'customer/successful.html' )
     else:
         form = RegistrationForm()
-    return render(request, 'account/signup.html', {'form': form, 'num_visits':num_visits}, )
+    return render(request, 'customer/signup.html', {'form': form, 'num_visits':num_visits}, )
 
 def login_view(request):
     if request.method == 'POST':
@@ -38,25 +38,25 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return render(request, 'account/successful.html')
+                return render(request, 'customer/successful.html')
     else:
         form = AuthenticationForm()
-    return render(request, 'account/login.html', {'form': form}, )
+    return render(request, 'customer/login.html', {'form': form}, )
 
 
 
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return render(request, 'account/successful.html')
+        return render(request, 'customer/successful.html')
 
-@login_required(login_url="/account/login/")
+@login_required(login_url="/customer/login/")
 def profile_view(request):
     return render(request, 'profile/profile.html')
 
 
 def password_reset_view(request):
-    return render(request, 'account/password_reset.html')
+    return render(request, 'customer/password_reset.html')
 
 
 

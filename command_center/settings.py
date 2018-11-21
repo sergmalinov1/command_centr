@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'global_maps.apps.GlobalmapsConfig',
-    'auth.apps.CustomerAuthConfig',
+    'customer.apps.CustomerAuthConfig',
+    'structure.apps.StructureConfig',
 
 ]
 

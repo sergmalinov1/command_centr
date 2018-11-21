@@ -3,14 +3,19 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Global Maps</title>
+        <title>{% block title %}Command center{% endblock %}</title>
         {% load staticfiles %}
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-HzUaiJdCTIY/RL2vDPRGdEQHHahjzwoJJzGUkYjHVzTwXFQ2QN/nVgX7tzoMW3Ov" crossorigin="anonymous">
         <link rel="stylesheet" href={% static "globalMaps/img/first.css" %} type="text/css" >
     </head>
     <body>
+
+     {% include "includes/header.html" %}
+
 
         <header class="wrapper">
             <nav>
@@ -21,7 +26,7 @@
                                    <a href="{% url 'profile' %}">My profile</a>
                                </p>
 
-                             <form class="logout-link" action="/auth/logout/" method="post">
+                             <form class="logout-link" action="/customer/logout/" method="post">
                                 {% csrf_token %}
                                 <button type="submit">Logout</button>
                             </form>
@@ -48,6 +53,6 @@
 
 
     <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>

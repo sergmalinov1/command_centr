@@ -4,7 +4,7 @@
 {% block content %}
     <h1> Log in</h1>
 
-    <form action="/auth/login/" method="post">
+    <form action="/customer/login/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         {% if request.GET.next %}
