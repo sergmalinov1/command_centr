@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'globalmaps/maps.html')
 
 @login_required(login_url="/account/login/")
-def kakogo(request):
+def global_maps_view(request):
     list_of_cells = Cell.objects.all()
     list_of_hex = [];
 

@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block content %}
+
+
+    {% include "profile/profile_nav_bar.html" %}
+
     <h1> My profile</h1>
+   {% if user.is_authenticated %}
+        <form class="logout-link" action="/customer/logout/" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+   {% endif %}
+
 
 
 {% endblock %}

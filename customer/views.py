@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
-from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from customer.forms import RegistrationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
 
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+
+from customer.forms import RegistrationForm
+from structure.models import Customer_Account
+from structure.forms import CreateAccountForm
 
 def index(request):
  #   return HttpResponse("<h3>Hello world</h3>")
@@ -43,8 +48,6 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'customer/login.html', {'form': form}, )
 
-
-
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
@@ -54,25 +57,29 @@ def logout_view(request):
 def profile_view(request):
     return render(request, 'profile/profile.html')
 
-
 def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
 
-
-
-""" TEST
 @csrf_exempt
-def login(request):
+def account_view(request):
     args = {}
-    args['form'] = LoginForm
-    return render_to_response('customerAuth/login.html', args)
+    args['accounts'] = Customer_Account.objects.all()
+    args['form'] = CreateAccountForm()
+    args['customer'] = '1'
+    return render(request, 'profile/account.html', args)
 
 
-#def loginVerifications(request):
- #   if request.POST:
-#        form = LoginForm
-#        if (form.is_valid())
+def create_account_view(request):
+    if request.POST:
+        form = CreateAccountForm(request.POST)
+        if form.is_valid():
+            account = form.save(commit=False)
+            account.customer_id = request.user.pk
+            form.save()
+        return redirect('/')
 
-   # return render_to_response('customerAuth/registration.html')
-   # return redirect('/')
-"""
+    return redirect('/')
+
+def country_view(request):
+    return render(request, 'profile/country.html')
+

@@ -13,6 +13,14 @@ urlpatterns = [
   url(r'^profile/$', views.profile_view, name='profile'),
   url(r'^password_reset/$', views.password_reset_view, name='password_reset'),
 
+
+
+
+  url(r'^account/$', views.account_view, name='my_account'),
+  url(r'^account/create/$', views.create_account_view, name='create_account'),
+
+  url(r'^country/$', views.country_view, name='my_country'),
+
  # url(r'^login/verifications/$', views.loginVerifications, name='index'),
 
 

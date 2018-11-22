@@ -17,33 +17,6 @@
      {% include "includes/header.html" %}
 
 
-        <header class="wrapper">
-            <nav>
-                <ul>
-                    <li>
-                         {% if user.is_authenticated %}
-                               <p>Welcome, {{ user.username }}. Thanks for logging in
-                                   <a href="{% url 'profile' %}">My profile</a>
-                               </p>
-
-                             <form class="logout-link" action="/customer/logout/" method="post">
-                                {% csrf_token %}
-                                <button type="submit">Logout</button>
-                            </form>
-
-                        {% else %}
-                              <p>Welcome, new user. Please   <a href="{% url 'login' %}">Log in</a></p>
-                        {% endif %}
-
-                    </li>
-                </ul>
-            </nav>
-
-
-        </header>
-
-
-
     <div id="container">
         {% block content %}
         {% endblock %}

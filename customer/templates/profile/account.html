@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "profile/profile_nav_bar.html" %}
+    <h1> My accounts</h1>
+
+
+   {% for item in accounts %}
+       <h3>{{ item.name }}</h3>
+       <h4>{{ item.world }}</h4>
+       <h4>{{ item.customer }}</h4>
+
+   {% endfor %}
+
+    <form action="/account/create/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Создать аккаунт</button>
+    </form>
+
+{% endblock %}
