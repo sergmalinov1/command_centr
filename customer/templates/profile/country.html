@@ -3,9 +3,24 @@
 
 {% block content %}
     {% include "profile/profile_nav_bar.html" %}
-    <h1> My country</h1>
+    <h1> My country & clan</h1>
 
 
+    <p> -------------- Создать страну ---------------- </p>
+    <form action="/country/create/" method="post">
+        {% csrf_token %}
+        {{ country_form.as_p }}
 
+        <button type="submit">Создать страна</button>
+    </form>
+
+
+    <p> -------------- Создать клан ---------------- </p>
+    <form action="/country/create/" method="post">
+        {% csrf_token %}
+        {{ clan_form.as_p }}
+
+        <button type="submit">Создать клан</button>
+    </form>
 
 {% endblock %}

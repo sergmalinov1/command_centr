@@ -6,12 +6,28 @@
     <h1> My accounts</h1>
 
 
-   {% for item in accounts %}
-       <h3>{{ item.name }}</h3>
-       <h4>{{ item.world }}</h4>
-       <h4>{{ item.customer }}</h4>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">World</th>
+                <th scope="col">Country</th>
+                <th scope="col">Clan</th>
+                <th scope="col">Account</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in accounts %}
+                <tr>
+                    <td> {{ item.world }} </td>
+                    <td>  <a href=""> Add </a>  </td>
+                    <td>  <a href=""> Add </a>  </td>
+                    <td> {{ item.name }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-   {% endfor %}
+    <h3> ------ Форма для создания --------- </h3>
 
     <form action="/account/create/" method="post">
         {% csrf_token %}
@@ -19,5 +35,11 @@
 
         <button type="submit">Создать аккаунт</button>
     </form>
+
+
+
+
+
+
 
 {% endblock %}

@@ -11,7 +11,7 @@ from django.http import HttpResponse
 
 from customer.forms import RegistrationForm
 from structure.models import Customer_Account
-from structure.forms import CreateAccountForm
+from structure.forms import CreateAccountForm, CreateCountryForm, CreateClanForm
 
 def index(request):
  #   return HttpResponse("<h3>Hello world</h3>")
@@ -60,26 +60,35 @@ def profile_view(request):
 def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
 
+'''ACCOUNT '''
 @csrf_exempt
 def account_view(request):
     args = {}
-    args['accounts'] = Customer_Account.objects.all()
+    args['accounts'] = Customer_Account.objects.filter(customer = request.user.id)
     args['form'] = CreateAccountForm()
-    args['customer'] = '1'
+   # args['request'] = request.user.id
     return render(request, 'profile/account.html', args)
 
-
+@csrf_exempt
 def create_account_view(request):
     if request.POST:
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             account = form.save(commit=False)
-            account.customer_id = request.user.pk
+            user = User.objects.get(id__contains = request.user.id)
+            account.customer_id = user.id
             form.save()
-        return redirect('/')
-
+        return redirect('/customer/account/')
     return redirect('/')
 
-def country_view(request):
-    return render(request, 'profile/country.html')
 
+
+'''COUNTRY '''
+def country_view(request):
+    args = {}
+    args['country_form'] = CreateCountryForm()
+    args['clan_form'] = CreateClanForm()
+    return render(request, 'profile/country.html', args)
+
+def create_country(request):
+    return render(request, 'profile/country.html')

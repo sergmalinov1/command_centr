@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from customer import views
 from django.contrib.auth.views import LoginView
+from django.urls import path
 
 urlpatterns = [
 
@@ -22,8 +23,5 @@ urlpatterns = [
   url(r'^country/$', views.country_view, name='my_country'),
 
  # url(r'^login/verifications/$', views.loginVerifications, name='index'),
-
-
-
 
 ]
