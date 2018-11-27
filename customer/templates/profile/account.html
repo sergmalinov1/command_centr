@@ -2,39 +2,53 @@
 {% load static %}
 
 {% block content %}
-    {% include "profile/profile_nav_bar.html" %}
-    <h1> My accounts</h1>
+
+    <div id="container">
+        <div class="row">
+            <div class="col-md-12" style="background-color: #ff9999">
+                <h1> My accounts</h1>
+            </div>
+
+            <div class="col-md-9" style="background-color: #ff1234">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">World</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Clan</th>
+                            <th scope="col">Account</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in accounts %}
+                            <tr>
+                                <td> {{ item.world }} </td>
+                                <td>  <a href=""> Add </a>  </td>
+                                <td>  <a href=""> Add </a>  </td>
+                                <td> {{ item.name }} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h3> ------ Форма для создания --------- </h3>
+
+                <form action="/account/create/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit">Создать аккаунт</button>
+                </form>
+            </div>
+
+            <div class="col-md-3" style="background-color: #99CCFF">
+                {% include "profile/inclide/profile_nav_bar.html" %}
+            </div>
+        </div>
+    </div>
 
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">World</th>
-                <th scope="col">Country</th>
-                <th scope="col">Clan</th>
-                <th scope="col">Account</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in accounts %}
-                <tr>
-                    <td> {{ item.world }} </td>
-                    <td>  <a href=""> Add </a>  </td>
-                    <td>  <a href=""> Add </a>  </td>
-                    <td> {{ item.name }} </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 
-    <h3> ------ Форма для создания --------- </h3>
-
-    <form action="/account/create/" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Создать аккаунт</button>
-    </form>
 
 
 
