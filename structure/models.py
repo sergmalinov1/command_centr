@@ -17,24 +17,24 @@ class World_version(models.Model):
         return 'Название - {0}'.format(self.name)
 
 class Customer_Account(models.Model):
-    name = models.CharField(max_length=50)
+    account_name = models.CharField(max_length=50)
     world = models.ForeignKey(World_version, on_delete=models.CASCADE)
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     #customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Название - {0}, Статус {1}'.format(self.name, self.world.name)
+        return 'Название - {0}, Статус {1}'.format(self.account_name, self.world.name)
 
 class Country(models.Model):
-    name = models.CharField(max_length=50)
+    country_name = models.CharField(max_length=50)
     world = models.ForeignKey(World_version, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Название - {0}'.format(self.name)
+        return 'Название - {0}'.format(self.country_name)
 
 class Clan(models.Model):
-    name = models.CharField(max_length=50)
+    clan_name = models.CharField(max_length=50)
     country = models.OneToOneField(Country, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Название - {0}'.format(self.name)
+        return 'Название - {0}'.format(self.clan_name)

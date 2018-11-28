@@ -5,11 +5,11 @@
 
     <div id="container">
         <div class="row">
-            <div class="col-md-12" style="background-color: #ff9999">
+            <div class="col-md-12" >
                 <h1> My accounts</h1>
             </div>
 
-            <div class="col-md-9" style="background-color: #ff1234">
+            <div class="col-md-9" ">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -31,23 +31,39 @@
                     </tbody>
                 </table>
 
-                <h3> ------ Форма для создания --------- </h3>
+                <h3> ------ Форма для создания аккаунта--------- </h3>
 
                 <form action="/account/create/" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ account_form.as_p }}
 
                     <button type="submit">Создать аккаунт</button>
+                </form>
+
+
+                <h3> ------ Форма для создания Страны--------- </h3>
+
+                <form action="/account/create/" method="post">
+                    {% csrf_token %}
+                    {{ country_form.as_p }}
+
+                    <button type="submit">Создать страну</button>
                 </form>
             </div>
 
             <div class="col-md-3" style="background-color: #99CCFF">
-                {% include "profile/inclide/profile_nav_bar.html" %}
+                {% include "profile/include/profile_nav_bar.html" %}
             </div>
         </div>
     </div>
 
+     {% include "profile/include/account_modal.html" %}
 
+    <a href="#accountModal" data-toggle="modal" > Всплывающее окно </a>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accountModal">
+      Launch demo modal
+    </button>
 
 
 

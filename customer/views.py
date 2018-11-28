@@ -65,7 +65,8 @@ def password_reset_view(request):
 def account_view(request):
     args = {}
     args['accounts'] = Customer_Account.objects.filter(customer = request.user.id)
-    args['form'] = CreateAccountForm()
+    args['account_form'] = CreateAccountForm()
+    args['country_form'] = CreateCountryForm()
    # args['request'] = request.user.id
     return render(request, 'profile/account.html', args)
 
