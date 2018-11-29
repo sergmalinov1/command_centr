@@ -9,7 +9,7 @@
                 <h1> My accounts</h1>
             </div>
 
-            <div class="col-md-9" ">
+            <div class="col-md-9" >
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -21,12 +21,13 @@
                     </thead>
                     <tbody>
                         {% for item in accounts %}
-                            <tr>
+
                                 <td> {{ item.world }} </td>
-                                <td>  <a href=""> Add </a>  </td>
-                                <td>  <a href=""> Add </a>  </td>
-                                <td> {{ item.name }} </td>
-                            </tr>
+                                <td> {{ item.country }}  </td>
+                                <td> {{ item.clan }} </td>
+                                <td> {{ item.account_name }} </td>
+
+
                         {% endfor %}
                     </tbody>
                 </table>
@@ -57,16 +58,20 @@
         </div>
     </div>
 
-     {% include "profile/include/account_modal.html" %}
+    {% include "profile/include/account_modal.html" %}
+    {% include "profile/include/create_country_modal.html" %}
 
     <a href="#accountModal" data-toggle="modal" > Всплывающее окно </a>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accountModal">
-      Launch demo modal
+        Создать аккаунт
     </button>
 
 
 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createCountryModal">
+        Создать страну
+    </button>
 
 
 

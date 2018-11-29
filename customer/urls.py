@@ -21,6 +21,7 @@ urlpatterns = [
   url(r'^account/create/$', views.create_account_view, name='create_account'),
 
   url(r'^country/$', views.country_view, name='my_country'),
+  url(r'^country/create/$', views.create_country, name='crate_country'),
 
  # url(r'^login/verifications/$', views.loginVerifications, name='index'),
 

@@ -22,7 +22,7 @@ def global_maps_view(request):
 
 
 class Hex:
-    img = "desrt_hill.png";
+    img = "desert_hill.png";
     coord_x = 1;
     coord_y = 0;
     hex_width = 105;

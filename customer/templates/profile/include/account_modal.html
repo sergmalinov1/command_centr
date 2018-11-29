@@ -11,7 +11,7 @@
             <form action="/account/create/" method="post">
                  <div class="modal-body">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ account_form.as_p }}
                  </div>
 
                 <div class="modal-footer">
