@@ -66,10 +66,7 @@ def account_view(request):
 
     args = {}
     account = []
-    list_of_accounts = []
-
     list_of_accounts = Customer_Account.objects.filter(customer = request.user.id)
-
 
 
     for item in list_of_accounts:
@@ -77,13 +74,13 @@ def account_view(request):
         clan_name = "-"
         country_name = "-"
 
+        clan = Clan.objects.filter(id__contains = item.clan)
 
-
-        clan = Clan.objects.filter(id__contains = item.clan.id)
-
-        if clan != None:
-            country = Country.objects.filter(id__contains = clan[0].country.id)
+        if clan is not None :
             clan_name = clan[0].clan_name
+            country = Country.objects.filter(id__contains=clan[0].country.id)
+
+        if country is not None:
             country_name = country[0].country_name
 
         acc = AccountView(account_name, clan_name, country_name)
