@@ -68,42 +68,42 @@ def account_view(request):
     account = []
     list_of_accounts = Customer_Account.objects.filter(customer = request.user.id)
 
-
     for item in list_of_accounts:
+        account_id = item.pk
         account_name = item.account_name
+        world_version = item.world.name
         clan_name = "-"
         country_name = "-"
 
-        clan = Clan.objects.filter(id__contains = item.clan)
 
-        if clan is not None :
-            clan_name = clan[0].clan_name
-            country = Country.objects.filter(id__contains=clan[0].country.id)
 
-        if country is not None:
-            country_name = country[0].country_name
+        if item.clan is not None:
+            clan = Clan.objects.get(id__contains=item.clan.pk)
+            clan_name = clan.clan_name
 
-        acc = AccountView(account_name, clan_name, country_name)
+            country = Country.objects.get(id__contains=item.clan.pk)
+            country_name = country.country_name
+
+        acc = AccountView(account_id, account_name, world_version, clan_name, country_name)
         account.append(acc)
-
-
-
- #   args['accounts'] = Customer_Account.objects.filter(customer = request.user.id)
-
 
     args['accounts'] = account
     args['account_form'] = CreateAccountForm()
     args['country_form'] = CreateCountryForm()
-   # args['request'] = request.user.id
+
     return render(request, 'profile/account.html', args)
 
 class AccountView:
+    account_id = 1
     country = ""
     clan = ""
     account_name = ""
+    world_version = ""
 
-    def __init__(self, account_name, clan="-", country="-"):
+    def __init__(self, account_id, account_name, world_version,  clan="-", country="-"):
+        self.account_id = account_id
         self.account_name = account_name
+        self.world_version = world_version
         self.country = country
         self.clan = clan
 
@@ -135,14 +135,6 @@ def create_country(request):
     if request.POST:
         form = CreateCountryForm(request.POST)
         if form.is_valid():
-
-
-            '''new_country = form.save(commit=False)
-            user = User.objects.get(id__contains = request.user.id)           
-            account = Customer_Account.objects.filter(id__contains = user.id)
-            new_country.account_id = account[0]  #ВОД ТУТ ПРОБЛЕМА! OnetoOne/ Нужно либо добавить проверку. либо как то интерфейсно решить
-            '''
-
             new_country = form.save()
 
             #Создание клана
@@ -152,10 +144,14 @@ def create_country(request):
             #Присвоение клана для пользователя
             user = User.objects.get(id__contains=request.user.id)
             account = Customer_Account.objects.get(customer=user.id)
-
             account.clan = new_clan
             account.save()
 
+        '''new_country = form.save(commit=False)
+                   user = User.objects.get(id__contains = request.user.id)           
+                   account = Customer_Account.objects.filter(id__contains = user.id)
+                   new_country.account_id = account[0]  #ВОД ТУТ ПРОБЛЕМА! OnetoOne/ Нужно либо добавить проверку. либо как то интерфейсно решить
+                   '''
         return redirect('/customer/account/')
     return redirect('/')
 

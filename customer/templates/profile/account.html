@@ -19,17 +19,23 @@
                             <th scope="col">Account</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {% for item in accounts %}
 
-                                <td> {{ item.world }} </td>
-                                <td> {{ item.country }}  </td>
-                                <td> {{ item.clan }} </td>
-                                <td> {{ item.account_name }} </td>
+                    {% for item in accounts %}
+                         <tbody>
+                            <td> <a href="#/create/ {{ item.account_id }}" >{{ item.world_version }} </a> </td>
+                            <td>
+                                {% if item.country == "-"  %}
+                                   {{ item.account_id }}
+                                    <a href="#accountModal" class="open-modal" data-toggle="modal" data-target="#createCountry" > Add </a>
+                                {% else  %}
+                                    {{ item.country }}
+                                {% endif  %}
+                            </td>
+                            <td> {{ item.clan }} </td>
+                            <td> {{ item.account_name }} </td>
+                        </tbody>
+                    {% endfor %}
 
-
-                        {% endfor %}
-                    </tbody>
                 </table>
 
                 <h3> ------ Форма для создания аккаунта--------- </h3>
@@ -72,8 +78,6 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createCountryModal">
         Создать страну
     </button>
-
-
 
 
 
