@@ -13,6 +13,8 @@ from customer.forms import RegistrationForm
 from structure.models import Customer_Account, Country, Clan
 from structure.forms import CreateAccountForm, CreateCountryForm, CreateClanForm
 
+
+
 def index(request):
  #   return HttpResponse("<h3>Hello world</h3>")
     return redirect ('customer/login')
@@ -61,12 +63,10 @@ def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
 
 '''ACCOUNT '''
-@csrf_exempt
-def account_view(request):
 
-    args = {}
-    account = []
-    list_of_accounts = Customer_Account.objects.filter(customer = request.user.id)
+def list_of_accounts(request):
+    accounts = []
+    list_of_accounts = Customer_Account.objects.filter(customer=request.user.id)
 
     for item in list_of_accounts:
         account_id = item.pk
@@ -75,23 +75,53 @@ def account_view(request):
         clan_name = "-"
         country_name = "-"
 
-
-
         if item.clan is not None:
             clan = Clan.objects.get(id__contains=item.clan.pk)
             clan_name = clan.clan_name
 
-            country = Country.objects.get(id__contains=item.clan.pk)
+            country = Country.objects.get(id__contains=clan.country_id)
             country_name = country.country_name
 
         acc = AccountView(account_id, account_name, world_version, clan_name, country_name)
-        account.append(acc)
+        accounts.append(acc)
+    return accounts
 
-    args['accounts'] = account
+class MyCountry:
+    country_id = 1
+    country_name = ""
+    num_of_accounts = 0
+
+    def __init__(self, country_name, num_of_accounts, country_id):
+        self.country_name = country_name
+        self.num_of_accounts = num_of_accounts
+        self.country_id = country_id
+
+def list_of_countries(request):
+    countries = []
+    countries_list = Country.objects.filter(customer_id=request.user.id)
+
+    for item in countries_list:
+        num_of_acc = 0
+        clan_list = Clan.objects.filter(country_id=item.id)
+        for clan_item in clan_list:
+            acc = Customer_Account.objects.filter(clan_id=clan_item.id)
+            num_of_acc = num_of_acc + acc.count()
+
+        my_country = MyCountry(item.country_name, num_of_acc, item.id)
+        countries.append(my_country)
+    return countries
+
+
+@csrf_exempt
+def account_view(request):
+
+    args = {}
+    args['accounts'] = list_of_accounts(request)
+    args['countries'] = list_of_countries(request)
     args['account_form'] = CreateAccountForm()
     args['country_form'] = CreateCountryForm()
 
-    return render(request, 'profile/account.html', args)
+    return render(request, 'profile/accounts.html', args)
 
 class AccountView:
     account_id = 1
@@ -106,8 +136,6 @@ class AccountView:
         self.world_version = world_version
         self.country = country
         self.clan = clan
-
-
 
 
 @csrf_exempt
@@ -127,6 +155,8 @@ def create_account_view(request):
 '''COUNTRY '''
 def country_view(request):
     args = {}
+    args['accounts'] = list_of_accounts(request)
+    args['countries'] = list_of_countries(request)
     args['country_form'] = CreateCountryForm()
     args['clan_form'] = CreateClanForm()
     return render(request, 'profile/country.html', args)
@@ -134,27 +164,32 @@ def country_view(request):
 def create_country(request):
     if request.POST:
         form = CreateCountryForm(request.POST)
+
         if form.is_valid():
-            new_country = form.save()
+            #Поиск связанного аккаунта
+            account_number = request.POST.get('account_number')
+            account = Customer_Account.objects.get(id=account_number)
+
+            # Создание страны
+            new_country = form.save(commit=False)
+            user = User.objects.get(id=request.user.id)
+            new_country.customer_id = user.id
+            new_country.world = account.world
+            form.save()
 
             #Создание клана
-            new_clan = Clan(clan_name="TEST", country=new_country )
+            clan_name = request.POST.get('clan_name')
+            new_clan = Clan(clan_name=clan_name, country=new_country )
             new_clan.save();
 
             #Присвоение клана для пользователя
-            user = User.objects.get(id__contains=request.user.id)
-            account = Customer_Account.objects.get(customer=user.id)
             account.clan = new_clan
             account.save()
 
-        '''new_country = form.save(commit=False)
-                   user = User.objects.get(id__contains = request.user.id)           
-                   account = Customer_Account.objects.filter(id__contains = user.id)
-                   new_country.account_id = account[0]  #ВОД ТУТ ПРОБЛЕМА! OnetoOne/ Нужно либо добавить проверку. либо как то интерфейсно решить
-                   '''
         return redirect('/customer/account/')
     return redirect('/')
 
-
-
     return render(request, 'profile/country.html')
+
+
+

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <div id="container">
+        <div class="row">
+            <div class="col-md-12" >
+                    <h1> My accounts  222</h1>
+            </div>
+
+
+            <div class="col-md-9" >
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">World</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Clan</th>
+                            <th scope="col">Account</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in accounts %}
+                         <tbody>
+                            <td> <a href="#/create/ {{ item.account_id }}" >{{ item.world_version }} </a> </td>
+                            <td>
+                                {% if item.country == "-"  %}
+                                    <a href="#" class="open-modal" data-id="{{ item.account_id }}" data-toggle="modal" data-target="#createCountryModal" > Add </a>
+                                {% else  %}
+                                    {{ item.country }}
+                                {% endif  %}
+                            </td>
+                            <td> {{ item.clan }} </td>
+                            <td> {{ item.account_name }} </td>
+                        </tbody>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+           <div class="col-md-3" style="background-color: #99CCFF">
+                {% include "profile/../include/profile_nav_bar.html" %}
+            </div>
+
+        </div>
+    </div>
+
+
+    {% include "include/account_modal.html" %}
+    {% include "include/create_country_modal.html" %}
+
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accountModal">
+        Создать аккаунт
+    </button>
+
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createCountryModal">
+        Создать страну
+    </button>
+
+
+
+
+{% endblock %}

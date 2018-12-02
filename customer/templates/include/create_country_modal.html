@@ -1,0 +1,43 @@
+<div id="createCountryModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Создать страну</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="/country/create/" method="post">
+                 <div class="modal-body">
+                    {% csrf_token %}
+                    {{ country_form.as_p }}
+
+                     <div class="form-group">
+                        <label for="exampleFormControlInput1">Название клана:</label>
+                        <input class="form-control"  name="clan_name" >
+                     </div>
+
+                    <div class="input-group" >
+                        <div class="form-group">
+                            <label>Выберите аккаунт:</label>
+
+                            <select class="custom-select"  name="account_number">
+                                 {% for item in accounts %}
+                                     <option value={{ item.account_id }} >{{ item.account_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

@@ -10,7 +10,7 @@ class CreateAccountForm(forms.ModelForm):
 class CreateCountryForm(forms.ModelForm):
     class Meta:
         model = Country
-        fields = ['country_name', 'world']
+        fields = ['country_name']
 
 class CreateClanForm(forms.ModelForm):
     class Meta:

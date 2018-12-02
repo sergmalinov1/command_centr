@@ -21,7 +21,7 @@ class World_version(models.Model):
 class Country(models.Model):
     country_name = models.CharField(max_length=50)
     world = models.ForeignKey(World_version, on_delete=models.CASCADE)
-  #  account_id = models.OneToOneField(Customer_Account, on_delete=models.CASCADE, default=1)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return 'Название - {0}'.format(self.country_name)
@@ -37,7 +37,8 @@ class Customer_Account(models.Model):
     account_name = models.CharField(max_length=50)
     world = models.ForeignKey(World_version, on_delete=models.CASCADE)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    clan = models.ForeignKey(Clan, on_delete=models.CASCADE, null=True, blank=True)
+    clan = models.ForeignKey(Clan, on_delete=models.SET_NULL,null=True, blank=True)
 
     def __str__(self):
         return 'Название - {0}, Статус {1}'.format(self.account_name, self.world.name)
+

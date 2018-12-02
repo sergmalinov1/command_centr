@@ -1,0 +1,14 @@
+
+<a class="nav-link" href="{% url 'profile' %}">Профиль</a>
+
+
+<h4> Мои Страны</h4>
+
+
+{% for item in countries %}
+    <a class="nav-link" href="{% url 'my_country'%}{{item.country_id}}">
+           {{ item.country_name }} ({{ item.num_of_accounts }})
+    </a>
+{% endfor %}
+
+<a class="nav-link" href="{% url 'my_account' %}">Мой Аккаунты</a>
