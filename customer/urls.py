@@ -22,6 +22,7 @@ urlpatterns = [
 
 
   url(r'^country/$', views.country_view, name='my_country'),
+  url(r'^country/get/(?P<country_id>\d+)$', views.country_detail_view, name='country_detail'),
   url(r'^country/create/$', views.create_country, name='crate_country'),
 
 

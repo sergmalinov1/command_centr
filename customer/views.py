@@ -62,11 +62,41 @@ def profile_view(request):
 def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
 
-'''ACCOUNT '''
+'''CLASS '''
+class MyAccounts:
+    account_id = 1
+    country = ""
+    clan = ""
+    account_name = ""
+    world_version = ""
+
+    def __init__(self, account_id, account_name, world_version,  clan="-", country="-"):
+        self.account_id = account_id
+        self.account_name = account_name
+        self.world_version = world_version
+        self.country = country
+        self.clan = clan
+
+
+class MyCountry:
+    country_id = 1
+    country_name = ""
+    num_of_accounts = 0
+
+    def __init__(self, country_name, num_of_accounts, country_id):
+        self.country_name = country_name
+        self.num_of_accounts = num_of_accounts
+        self.country_id = country_id
+
+
+'''DEF '''
 
 def list_of_accounts(request):
     accounts = []
     list_of_accounts = Customer_Account.objects.filter(customer=request.user.id)
+
+    # list_of_free_accounts
+    #list_of_accounts = Customer_Account.objects.filter(customer=request.user.id).filter(clan_id=None)
 
     for item in list_of_accounts:
         account_id = item.pk
@@ -82,19 +112,9 @@ def list_of_accounts(request):
             country = Country.objects.get(id__contains=clan.country_id)
             country_name = country.country_name
 
-        acc = AccountView(account_id, account_name, world_version, clan_name, country_name)
+        acc = MyAccounts(account_id, account_name, world_version, clan_name, country_name)
         accounts.append(acc)
     return accounts
-
-class MyCountry:
-    country_id = 1
-    country_name = ""
-    num_of_accounts = 0
-
-    def __init__(self, country_name, num_of_accounts, country_id):
-        self.country_name = country_name
-        self.num_of_accounts = num_of_accounts
-        self.country_id = country_id
 
 def list_of_countries(request):
     countries = []
@@ -123,19 +143,7 @@ def account_view(request):
 
     return render(request, 'profile/accounts.html', args)
 
-class AccountView:
-    account_id = 1
-    country = ""
-    clan = ""
-    account_name = ""
-    world_version = ""
 
-    def __init__(self, account_id, account_name, world_version,  clan="-", country="-"):
-        self.account_id = account_id
-        self.account_name = account_name
-        self.world_version = world_version
-        self.country = country
-        self.clan = clan
 
 
 @csrf_exempt
@@ -191,5 +199,9 @@ def create_country(request):
 
     return render(request, 'profile/country.html')
 
+def country_detail_view(request, country_id=1):
+    args = {}
+    args['country'] = Country.objects.get(id = country_id)
 
+    return render(request, 'profile/country_detail.html', args)
 

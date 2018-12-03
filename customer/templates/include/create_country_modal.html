@@ -24,7 +24,9 @@
 
                             <select class="custom-select"  name="account_number">
                                  {% for item in accounts %}
-                                     <option value={{ item.account_id }} >{{ item.account_name }}</option>
+                                     {% if item.country == "-" %}
+                                        <option value={{ item.account_id }} >{{ item.account_name }}</option>
+                                     {% endif %}
                                 {% endfor %}
                             </select>
                         </div>

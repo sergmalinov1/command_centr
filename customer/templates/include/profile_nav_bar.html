@@ -6,7 +6,7 @@
 
 
 {% for item in countries %}
-    <a class="nav-link" href="{% url 'my_country'%}{{item.country_id}}">
+    <a class="nav-link" href="/country/get/{{item.country_id}}">
            {{ item.country_name }} ({{ item.num_of_accounts }})
     </a>
 {% endfor %}
