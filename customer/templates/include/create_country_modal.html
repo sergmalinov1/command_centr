@@ -21,9 +21,8 @@
                     <div class="input-group" >
                         <div class="form-group">
                             <label>Выберите аккаунт:</label>
-
                             <select class="custom-select"  name="account_number">
-                                 {% for item in accounts %}
+                                 {% for item in world_list %}
                                      {% if item.country == "-" %}
                                         <option value={{ item.account_id }} >{{ item.account_name }}</option>
                                      {% endif %}

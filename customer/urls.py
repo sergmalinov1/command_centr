@@ -12,6 +12,8 @@ urlpatterns = [
   url(r'^logout/$', views.logout_view, name='logout'),
 
   url(r'^profile/$', views.profile_view, name='profile'),
+  url(r'^select-world/$', views.select_world_view, name='select_world'),
+
   url(r'^password_reset/$', views.password_reset_view, name='password_reset'),
 
 

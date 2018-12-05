@@ -18,12 +18,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Реклама</a>
             </li>
+            <li class="nav-item">
+                <label class="nav-link"> Выбранный мир: {{ selected_world }} </label>
+            </li>
         </ul>
+
 
 
     <span class="navbar-text">
         {% if user.is_authenticated %}
-            <ul>Welcome, {{ user.username }}.  <a href="{% url 'profile' %}">My profile</a>    </ul>
+            <ul>Welcome, {{ user.username }}.  <a href="{% url 'profile' %}">My profile</a>            </ul>
         {% else %}
             <ul>Welcome, new user.  <a href="{% url 'login' %}">Please Log in</a></ul>
         {% endif %}

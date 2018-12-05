@@ -11,12 +11,31 @@
             </div>
 
             <div class="col-md-9" style="background-color: #ff1234">
-               {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
+                     <br><br>
+                     <h4> ********* Выберите мир  **************</h4>
+                     <form class="logout-link" action="/customer/select-world/" method="post">
+                        {% csrf_token %}
+                         <div class="input-group" >
+                            <div class="form-group">
+                                <label>Выберите гровой мир:</label>
+                                <select class="custom-select"  name="world_number">
+                                     {% for item in world_list %}
+                                         <option value={{ item.name }} >{{ item.name }}</option>
+                                     {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                         <button type="submit">Select</button>
+                    </form>
+
+                    <br><br>
+                    <h4> ********* Выйти из учетной записи  **************</h4>
                     <form class="logout-link" action="/customer/logout/" method="post">
                         {% csrf_token %}
                         <button type="submit">Logout</button>
                     </form>
-               {% endif %}
+                {% endif %}
             </div>
 
             <div class="col-md-3" style="background-color: #99CCFF">

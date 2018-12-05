@@ -7,10 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from django.shortcuts import render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 
 from customer.forms import RegistrationForm
-from structure.models import Customer_Account, Country, Clan
+from structure.models import Customer_Account, Country, Clan, World_version
 from structure.forms import CreateAccountForm, CreateCountryForm, CreateClanForm
 
 
@@ -57,12 +57,27 @@ def logout_view(request):
 
 @login_required(login_url="/customer/login/")
 def profile_view(request):
-    return render(request, 'profile/profile.html')
+    args = {}
+    args['world_list'] = World_version.objects.all()
+    args['selected_world'] = request.session.get('selected_world_num', 0)
+    return render(request, 'profile/profile.html', args)
+
+def select_world_view(request):
+    if request.POST:
+        selected_world_num = request.POST.get('world_number')
+        request.session['selected_world_num'] = selected_world_num
+    else:
+        request.session['selected_world_num'] = 'aaaa'
+
+    return redirect('profile')
+
+
+
 
 def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
 
-'''CLASS '''
+''' CLASS '''
 class MyAccounts:
     account_id = 1
     country = ""

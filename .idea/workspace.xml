@@ -2,27 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3af78d9a-0eba-42ab-b28a-de43c38adf3c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/customer/static/customer/js/account_modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structure/migrations/0014_auto_20181202_0833.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structure/migrations/0015_country_customer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/command_center.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/command_center.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command_center/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/command_center/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/static/customer/js/modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/templates/profile/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/profile/accounts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/templates/profile/country.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/profile/country.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/templates/profile/include/account_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/include/account_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/templates/profile/include/create_country_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/include/create_country_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/templates/profile/include/profile_nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/include/profile_nav_bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/templates/include/create_country_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/include/create_country_modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/templates/profile/accounts.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/profile/accounts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/templates/profile/country_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/profile/country_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structure/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/structure/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structure/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/structure/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,46 +49,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/customer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
+            <state relative-caret-position="406">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#2990#3014#0" />
-                <element signature="e#5143#6079#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="country_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/includes/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="country_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customer/templates/profile/country_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+            <state relative-caret-position="187">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile_nav_bar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/customer/templates/include/profile_nav_bar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/customer/urls.py">
+      <file leaf-file-name="create_country_modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/templates/include/create_country_modal.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="91" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="91" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+              <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -105,8 +91,29 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structure/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="170">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/templates/profile/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="81" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,6 +136,9 @@
       <find>ccc_auth</find>
       <find>form.save</find>
       <find>list_of_accounts</find>
+      <find>num_visits</find>
+      <find>all</find>
+      <find>redire</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,9 +171,7 @@
         <option value="$PROJECT_DIR$/customer/templates/book/create_book.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/profile_nav_bar.html" />
         <option value="$PROJECT_DIR$/templates/includes/modal.html" />
-        <option value="$PROJECT_DIR$/templates/includes/header.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/inclide/profile_nav_bar.html" />
-        <option value="$PROJECT_DIR$/customer/templates/profile/profile.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/include/modal.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/include/create_account_modal.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/include/account_modal.html" />
@@ -173,7 +181,6 @@
         <option value="$PROJECT_DIR$/staticfiles/customer/js/modal.js" />
         <option value="$PROJECT_DIR$/customer/static/customer/js/modal.js" />
         <option value="$PROJECT_DIR$/command_center/settings.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/account.html" />
         <option value="$PROJECT_DIR$/customer/static/customer/js/account_modal.js" />
         <option value="$PROJECT_DIR$/customer/templates/create_country.html" />
@@ -185,12 +192,15 @@
         <option value="$PROJECT_DIR$/structure/models.py" />
         <option value="$PROJECT_DIR$/customer/templates/profile/country.html" />
         <option value="$PROJECT_DIR$/structure/forms.py" />
-        <option value="$PROJECT_DIR$/customer/templates/profile/accounts.html" />
-        <option value="$PROJECT_DIR$/customer/templates/include/create_country_modal.html" />
-        <option value="$PROJECT_DIR$/customer/urls.py" />
-        <option value="$PROJECT_DIR$/customer/views.py" />
         <option value="$PROJECT_DIR$/customer/templates/include/profile_nav_bar.html" />
         <option value="$PROJECT_DIR$/customer/templates/profile/country_detail.html" />
+        <option value="$PROJECT_DIR$/customer/templates/profile/accounts.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/customer/templates/include/create_country_modal.html" />
+        <option value="$PROJECT_DIR$/customer/templates/profile/profile.html" />
+        <option value="$PROJECT_DIR$/templates/includes/header.html" />
+        <option value="$PROJECT_DIR$/customer/urls.py" />
+        <option value="$PROJECT_DIR$/customer/views.py" />
       </list>
     </option>
   </component>
@@ -203,7 +213,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
@@ -273,6 +283,12 @@
               <item name="command_centr" type="b2602c69:ProjectViewProjectNode" />
               <item name="command_centr" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="command_centr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="command_centr" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -367,7 +383,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
@@ -375,9 +391,9 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32963374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9248401" visible="true" weight="0.32519424" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9248401" visible="true" weight="0.32418162" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32963374" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.18176973" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.18125" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32995737" />
@@ -395,29 +411,29 @@
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" sideWeight="0.49947917" weight="0.32946146" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053304" side_tool="true" weight="0.39955604" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.18125" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9248401" visible="true" weight="0.32629356" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.50165564" side_tool="true" weight="0.21801706" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.1796875" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="manage.py@command_center" order="9" sideWeight="0.4984375" weight="0.50158393" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32995737" />
       <window_info id="Structure" order="1" sideWeight="0.50165564" side_tool="true" weight="0.21801706" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32939634" />
-      <window_info active="true" anchor="bottom" id="manage.py@command_center" order="9" sideWeight="0.4984375" weight="0.50158393" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32963374" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.51319957" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.32995737" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" sideWeight="0.49947917" weight="0.32946146" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9248401" visible="true" weight="0.32418162" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32939634" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32963374" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.5127636" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32963374" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053304" side_tool="true" weight="0.39955604" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" sideWeight="0.49947917" weight="0.32946146" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" sideWeight="0.50165564" side_tool="true" weight="0.21801706" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +447,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="38" />
+      <option name="time" value="39" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -473,13 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="242" selection-start-line="242" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -532,20 +541,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -613,23 +608,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer/static/customer/js/account_modal.js" />
     <entry file="file://$PROJECT_DIR$/customer/templates/include/account_modal_min.html" />
     <entry file="file://$PROJECT_DIR$/customer/templates/include/account_modal_min.html" />
-    <entry file="file://$PROJECT_DIR$/customer/templates/profile/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -637,18 +618,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customer/templates/include/account_modal.html" />
     <entry file="file://$PROJECT_DIR$/customer/templates/profile/create_country.html" />
-    <entry file="file://$PROJECT_DIR$/structure/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/structure/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,57 +630,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customer/templates/profile/accounts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customer/templates/include/create_country_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/customer/templates/profile/country.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="32" selection-end-column="10" />
+        <state relative-caret-position="561">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customer/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="91" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structure/models.py">
+    <entry file="file://$PROJECT_DIR$/customer/templates/profile/accounts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customer/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#2990#3014#0" />
-            <element signature="e#5143#6079#0" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/templates/include/account_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -717,10 +685,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/customer/templates/include/create_country_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/customer/templates/profile/country_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/templates/profile/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="81" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
