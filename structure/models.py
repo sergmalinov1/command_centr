@@ -42,3 +42,8 @@ class Customer_Account(models.Model):
     def __str__(self):
         return 'Название - {0}, Статус {1}'.format(self.account_name, self.world.name)
 
+
+class User_settings(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    selected_world = models.ForeignKey(World_version, on_delete=models.CASCADE, default=4)
+

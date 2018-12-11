@@ -10,9 +10,10 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, response
 
 from customer.forms import RegistrationForm
-from structure.models import Customer_Account, Country, Clan, World_version
+from structure.models import Customer_Account, Country, Clan, World_version, User_settings
 from structure.forms import CreateAccountForm, CreateCountryForm, CreateClanForm
 
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def index(request):
@@ -31,6 +32,11 @@ def signup_view(request):
             user = form.save()
             #log user here
             login(request, user)
+
+            #устанавливаем мир по умолчанию = 1
+            settings = User_settings(user)
+            settings.save()
+
             return render(request, 'customer/successful.html' )
     else:
         form = RegistrationForm()
@@ -64,15 +70,25 @@ def profile_view(request):
 
 def select_world_view(request):
     if request.POST:
-        selected_world_num = request.POST.get('world_number')
-        request.session['selected_world_num'] = selected_world_num
+
+        #user = User.objects.get(id=request.user.id)
+
+        selected_world_name = request.POST.get('world_number')
+        world = World_version.objects.get(name = selected_world_name)
+
+        try:
+            settings = User_settings.objects.get(customer=request.user.id)
+            settings.selected_world = world
+            settings.save()
+        except ObjectDoesNotExist:
+            settings = User_settings(customer = request.user, selected_world = world)
+            settings.save()
+
+        request.session['selected_world_num'] = world.id
     else:
         request.session['selected_world_num'] = 'aaaa'
 
     return redirect('profile')
-
-
-
 
 def password_reset_view(request):
     return render(request, 'customer/password_reset.html')
@@ -92,7 +108,6 @@ class MyAccounts:
         self.country = country
         self.clan = clan
 
-
 class MyCountry:
     country_id = 1
     country_name = ""
@@ -105,10 +120,11 @@ class MyCountry:
 
 
 '''DEF '''
-
 def list_of_accounts(request):
     accounts = []
-    list_of_accounts = Customer_Account.objects.filter(customer=request.user.id)
+
+    settings = User_settings.objects.get(customer=request.user)
+    list_of_accounts = Customer_Account.objects.filter(customer=request.user.id).filter(world = settings.selected_world.id)
 
     # list_of_free_accounts
     #list_of_accounts = Customer_Account.objects.filter(customer=request.user.id).filter(clan_id=None)
@@ -146,7 +162,6 @@ def list_of_countries(request):
         countries.append(my_country)
     return countries
 
-
 @csrf_exempt
 def account_view(request):
 
@@ -157,9 +172,6 @@ def account_view(request):
     args['country_form'] = CreateCountryForm()
 
     return render(request, 'profile/accounts.html', args)
-
-
-
 
 @csrf_exempt
 def create_account_view(request):
@@ -172,8 +184,6 @@ def create_account_view(request):
             form.save()
         return redirect('/customer/account/')
     return redirect('/')
-
-
 
 '''COUNTRY '''
 def country_view(request):

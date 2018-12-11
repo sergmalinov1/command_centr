@@ -19,7 +19,9 @@
                 <a class="nav-link" href="#">Реклама</a>
             </li>
             <li class="nav-item">
-                <label class="nav-link"> Выбранный мир: {{ selected_world }} </label>
+                {% if selected_world != none %}
+                    <label class="nav-link"> Выбранный мир: {{ selected_world }} </label>
+                {% endif %}
             </li>
         </ul>
 
