@@ -34,7 +34,8 @@ def signup_view(request):
             login(request, user)
 
             #устанавливаем мир по умолчанию = 1
-            settings = User_settings(user)
+            world = World_version.objects.all()
+            settings = User_settings(customer=request.user, selected_world=world[0])
             settings.save()
 
             return render(request, 'customer/successful.html' )
@@ -64,6 +65,8 @@ def logout_view(request):
 @login_required(login_url="/customer/login/")
 def profile_view(request):
     args = {}
+    args['accounts'] = list_of_accounts(request)
+    args['countries'] = list_of_countries(request)
     args['world_list'] = World_version.objects.all()
     args['selected_world'] = request.session.get('selected_world_num', 0)
     return render(request, 'profile/profile.html', args)
@@ -162,8 +165,10 @@ def list_of_countries(request):
         countries.append(my_country)
     return countries
 
+
+'''ACCOUNT '''
 @csrf_exempt
-def account_view(request):
+def accounts_view(request):
 
     args = {}
     args['accounts'] = list_of_accounts(request)
@@ -171,7 +176,15 @@ def account_view(request):
     args['account_form'] = CreateAccountForm()
     args['country_form'] = CreateCountryForm()
 
-    return render(request, 'profile/accounts.html', args)
+    return render(request, 'account/accounts.html', args)
+
+def account_detail_view(request, account_id=1):
+    args = {}
+    args['account'] = Customer_Account.objects.get(id = account_id)
+    args['accounts'] = list_of_accounts(request)
+    args['countries'] = list_of_countries(request)
+
+    return render(request, 'account/account_detail.html', args)
 
 @csrf_exempt
 def create_account_view(request):
@@ -192,7 +205,7 @@ def country_view(request):
     args['countries'] = list_of_countries(request)
     args['country_form'] = CreateCountryForm()
     args['clan_form'] = CreateClanForm()
-    return render(request, 'profile/country.html', args)
+    return render(request, 'country/country.html', args)
 
 def create_country(request):
     if request.POST:
@@ -222,11 +235,13 @@ def create_country(request):
         return redirect('/customer/account/')
     return redirect('/')
 
-    return render(request, 'profile/country.html')
+    return render(request, 'profile/templates/country/country.html')
 
 def country_detail_view(request, country_id=1):
     args = {}
     args['country'] = Country.objects.get(id = country_id)
+    args['accounts'] = list_of_accounts(request)
+    args['countries'] = list_of_countries(request)
 
-    return render(request, 'profile/country_detail.html', args)
+    return render(request, 'country/country_detail.html', args)
 

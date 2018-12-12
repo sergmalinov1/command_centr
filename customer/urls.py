@@ -19,7 +19,8 @@ urlpatterns = [
 
 
 
-  url(r'^account/$', views.account_view, name='my_account'),
+  url(r'^account/$', views.accounts_view, name='my_account'),
+  url(r'^account/get/(?P<account_id>\d+)$', views.account_detail_view, name='account_detail'),
   url(r'^account/create/$', views.create_account_view, name='create_account'),
 
 
